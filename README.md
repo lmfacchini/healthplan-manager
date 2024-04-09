@@ -1,4 +1,4 @@
-# Health Plan Beneficiaries Registration
+# Health Plan Beneficiaries Registration Using Spring Boot 3
 
 This is a project developed with Spring Boot to provide a REST API for managing the registration of health plan beneficiaries.
 

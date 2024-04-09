@@ -31,6 +31,9 @@ public class DocumentServiceImpl extends AuditableDomainService<Document, Docume
 
     @Override
     public Set<DocumentDto> save(final Long beneficiaryId, Collection<DocumentDto> documets) {
+        //For Delete
+        getAllDocumentsByBeneficiaryId(beneficiaryId).stream().filter(existsDoc->!documets.stream().anyMatch(unkDoc->unkDoc.equals(existsDoc)))
+                .map(DocumentDto::getId).forEach(repository::deleteById);
         return documets.stream().map(dto -> save(beneficiaryId, dto)).collect(Collectors.toSet());
     }
 

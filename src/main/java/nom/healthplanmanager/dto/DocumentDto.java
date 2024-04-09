@@ -3,6 +3,7 @@ package nom.healthplanmanager.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,6 +16,7 @@ import nom.healthplanmanager.constant.DocumentType;
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DocumentDto extends AuditableDto {
+
 
     private Long id;
 

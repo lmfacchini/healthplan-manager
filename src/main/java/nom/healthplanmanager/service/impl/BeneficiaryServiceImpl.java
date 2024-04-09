@@ -63,6 +63,7 @@ public class BeneficiaryServiceImpl extends AuditableDomainService<Beneficiary, 
         domain.setBirthDate(dto.getBirthDate());
 
         repository.save(domain);
+        documentService.save(domain.getId(), dto.getDocuments());
     }
 
     @Override

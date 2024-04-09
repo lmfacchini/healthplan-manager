@@ -1,5 +1,8 @@
 # File similar to the default. This was done so that the default is not stuck in the same file for unit tests.
 spring:
+  ai:
+    openai:
+      apiKey: "your-openai-api-key-here"
   application:
     name: "Healthplan Manager"
   datasource:

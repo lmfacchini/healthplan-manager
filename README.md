@@ -24,15 +24,25 @@ This is a project developed with Spring Boot to provide a REST API for managing 
 2. Navigate to the project directory:
 
 
-3. Execute the following command to compile the project:
+3. Open the `application.yml` file and configure your OpenAI API Key:
+    ```yaml
+    spring:
+      ai:
+        openai:
+          apiKey: "your-openai-api-key-here"
 
 
+4. Execute the following command to compile the project:
 
-4. Execute the following command to start the application:
+    ```shell
+     mvn clean package
 
+5. Execute the following command to start the application:
 
+    ```shell
+     mvn spring-boot:run
 
-5. After successfully starting, the application will be available at `http://localhost:8080`.
+6. After successfully starting, the application will be available at `http://localhost:8080`.
 
 ## API Documentation
 

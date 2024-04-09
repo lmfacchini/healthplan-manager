@@ -1,7 +1,7 @@
 spring:
   ai:
     openai:
-      apiKey: "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"
+      apiKey: "your-openai-api-key-here"
   application:
     name: "Healthplan Manager"
   datasource:

@@ -30,6 +30,10 @@ This is a project developed with Spring Boot to provide a REST API for managing 
       ai:
         openai:
           apiKey: "your-openai-api-key-here"
+    
+It can be created at the URL: https://platform.openai.com/api-keys
+
+
 
 
 4. Execute the following command to compile the project:

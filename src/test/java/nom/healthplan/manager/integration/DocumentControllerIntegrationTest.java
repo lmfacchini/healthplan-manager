@@ -1,19 +1,14 @@
 package nom.healthplan.manager.integration;
 
 import nom.healthplanmanager.HealthplanManagerApplication;
-import nom.healthplanmanager.dto.DocumentDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import java.util.Set;
-
-import static nom.healthplanmanager.constant.DocumentType.CPF;
-import static nom.healthplanmanager.constant.DocumentType.RG;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -21,6 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(classes = HealthplanManagerApplication.class)
 @AutoConfigureMockMvc
+@ActiveProfiles("utest")
 public class DocumentControllerIntegrationTest {
 
     @Autowired

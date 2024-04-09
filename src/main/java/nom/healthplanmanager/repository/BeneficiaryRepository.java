@@ -1,14 +1,10 @@
 package nom.healthplanmanager.repository;
 
 import nom.healthplanmanager.model.Beneficiary;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.Optional;
-import java.util.Set;
-
-public interface BeneficiaryRepository {
+public interface BeneficiaryRepository extends JpaRepository<Beneficiary, Long> {
 
     Beneficiary save(Beneficiary beneficiary);
-    Set<Beneficiary> findAll();
-    Optional<Beneficiary> findById(Long id);
     void deleteById(Long id);
 }

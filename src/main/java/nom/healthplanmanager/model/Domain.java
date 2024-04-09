@@ -1,4 +1,7 @@
 package nom.healthplanmanager.model;
 
-public interface Domain {
+import nom.healthplanmanager.ValueObject;
+
+public interface Domain extends ValueObject<Long> {
+
 }

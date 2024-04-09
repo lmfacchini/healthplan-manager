@@ -1,4 +1,7 @@
 package nom.healthplanmanager.dto;
 
-public interface DataTransferObject {
+import nom.healthplanmanager.ValueObject;
+
+public interface DataTransferObject extends ValueObject<Long> {
+
 }

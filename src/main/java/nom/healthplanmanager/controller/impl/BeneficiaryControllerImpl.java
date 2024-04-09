@@ -1,5 +1,6 @@
 package nom.healthplanmanager.controller.impl;
 
+import jakarta.validation.Valid;
 import nom.healthplanmanager.controller.BeneficiaryController;
 import nom.healthplanmanager.dto.BeneficiaryDto;
 import nom.healthplanmanager.service.BeneficiaryService;
@@ -20,9 +21,9 @@ public class BeneficiaryControllerImpl implements BeneficiaryController<Response
 
     @PostMapping
     @Override
-    public ResponseEntity create(@RequestBody BeneficiaryDto dto) {
-        beneficiaryService.create(dto);
-        return ResponseEntity.created(URI.create("/" + dto.getId())).build();
+    public ResponseEntity create(@Valid  @RequestBody BeneficiaryDto dto) {
+        dto = beneficiaryService.create(dto);
+        return ResponseEntity.created(URI.create("/beneficiary/" + dto.getId())).build();
     }
 
     @GetMapping
@@ -39,7 +40,7 @@ public class BeneficiaryControllerImpl implements BeneficiaryController<Response
 
     @PutMapping
     @Override
-    public ResponseEntity update(@RequestBody BeneficiaryDto dto) {
+    public ResponseEntity update(@Valid @RequestBody BeneficiaryDto dto) {
         beneficiaryService.update(dto);
         return ResponseEntity.ok().build();
     }

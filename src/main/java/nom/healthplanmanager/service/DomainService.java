@@ -4,8 +4,6 @@ import nom.healthplanmanager.dto.DataTransferObject;
 import nom.healthplanmanager.model.Domain;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.Collection;
-import java.util.stream.Collectors;
 import java.lang.reflect.Type;
 
 public abstract class DomainService<DOMAIN extends Domain, DTO extends DataTransferObject> {
@@ -30,7 +28,9 @@ public abstract class DomainService<DOMAIN extends Domain, DTO extends DataTrans
 
     protected DOMAIN parse(DTO dto){
         try{
-            return domainClass.getDeclaredConstructor().newInstance();
+            DOMAIN domain = domainClass.getDeclaredConstructor().newInstance();
+            domain.setId(dto.getId());
+            return domain;
         }catch (Exception ex){
             throw new IllegalArgumentException("Unable to determine the generic type of the domain class.", ex);
         }
@@ -39,22 +39,13 @@ public abstract class DomainService<DOMAIN extends Domain, DTO extends DataTrans
 
     protected DTO parse(DOMAIN domain){
         try{
-            return dtoClass.getDeclaredConstructor().newInstance();
+            DTO dto = dtoClass.getDeclaredConstructor().newInstance();
+            dto.setId(domain.getId());
+            return dto;
         }catch (Exception ex){
             throw new IllegalArgumentException("Unable to determine the generic type of the dto class.", ex);
         }
 
     }
 
-    protected <T extends Collection<DTO>>T parse(Collection<DOMAIN> collection){
-        if(collection == null){
-            throw new IllegalArgumentException("Collection cannot be null.");
-        }
-        try{
-            final T result = (T) collection.getClass().getDeclaredConstructor().newInstance();
-            return collection.stream().map(this::parse).collect(Collectors.toCollection(()->result));
-        }catch (Exception ex){
-            throw new IllegalArgumentException("Collection cannot be instantiated.", ex);
-        }
-    }
 }
